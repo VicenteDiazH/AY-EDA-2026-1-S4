@@ -1,0 +1,43 @@
+------------------------------------------------------------
+ENUNCIADO
+------------------------------------------------------------
+ 
+Se tiene un arreglo de enteros desordenado que puede contener
+elementos duplicados. Dado el arreglo `arr` y un valor `target`,
+debes realizar dos tareas en orden:
+ 
+  1. ORDENAR el arreglo usando Pancake Sort.
+     La única operación permitida para ordenar es flip(arr, k),
+     que invierte los primeros k+1 elementos. No puedes usar
+     .sort(), sorted(), ni ningún otro método de ordenamiento.
+ 
+  2. BUSCAR, sobre el arreglo ya ordenado, el índice del primer
+     y último elemento igual a `target` usando búsqueda binaria.
+     Retorna el rango como [first, last].
+     Si el target no existe en el arreglo, retorna [-1, -1].
+ 
+------------------------------------------------------------
+EJEMPLO
+------------------------------------------------------------
+ 
+  Input:
+    arr    = [3, 6, 2, 3, 1, 3]
+    target = 3
+ 
+  Después de Pancake Sort:
+    arr    = [1, 2, 3, 3, 3, 6]
+ 
+  Búsqueda binaria del rango de 3:
+    primer 3 → índice 2
+    último 3 → índice 4
+ 
+  Output:
+    [2, 4]
+ 
+Explicación: el arreglo tiene tres ocurrencias del valor 3.
+Tras ordenarlo con pancake sort, quedan agrupadas y contiguas
+en las posiciones 2, 3 y 4. Recién ahí tiene sentido aplicar
+búsqueda binaria, ya que esta solo funciona correctamente sobre
+arreglos ordenados. Con dos búsquedas binarias independientes
+(una buscando la cota inferior y otra la cota superior) se
+encuentra el rango [2, 4] en O(log n) en vez de O(n).
